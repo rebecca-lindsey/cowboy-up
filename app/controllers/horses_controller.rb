@@ -1,0 +1,4 @@
+class HorsesController < ApplicationController
+
+
+end
