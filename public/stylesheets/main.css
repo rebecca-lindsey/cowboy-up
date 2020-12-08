@@ -6,14 +6,15 @@
     padding: 0;
   }
 
-  html, body {
+  html,
+  body {
     height: 100%;
     width: 100%;
   }
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
+    background-image: lightblue;
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
@@ -21,9 +22,9 @@
 
   .wrapper {
     background: #fff;
-    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    box-shadow: 0 0 10px rgba(0,0,0,.3);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     margin: 16px auto;
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
@@ -91,7 +92,8 @@
     width: auto;
   }
 
-  .content, .sidebar {
+  .content,
+  .sidebar {
     float: none;
     width: 100%;
   }
