@@ -34,11 +34,12 @@ class UsersController < ApplicationController
     user = User.find_by_email(params[:email])
         if user && user.authenticate(params[:password])
             # if user exists and has valid password
+            binding.pry
             session[:user_id] = user.id
-            redirect '/horses/:id'
-        # else
+            redirect '/users/:id'
+        else
             # if invalid login, display error and redirect somewhere
-            # redirect '/signup'
+            redirect '/signup'
         end
   end
 
@@ -55,5 +56,10 @@ class UsersController < ApplicationController
     #     @user = User.all.find{|user| user.slug == params[:slug]}
     #     erb :'/users/show'
     # end
+
+    get '/users/:id' do
+        @user = User.all.find{|user| user.id.to_s == params[:id]}
+        erb :'/users/show'
+    end
 
 end
