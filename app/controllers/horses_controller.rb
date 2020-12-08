@@ -1,12 +1,12 @@
 class HorsesController < ApplicationController
     get '/horses' do
         # Redirect if not logged in
-        erb: '/horses/index'
+        erb :'/horses/index'
     end
 
     get '/horses/new' do
         # Redirect if not logged in
-        erb: '/horses/new'
+        erb :'/horses/new'
     end
 
     post '/horses' do
