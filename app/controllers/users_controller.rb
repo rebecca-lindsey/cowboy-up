@@ -2,14 +2,14 @@ class UsersController < ApplicationController
 
   get '/signup' do
     if logged_in?
-        # Don't let them signup again if logged in
+        redirect '/horses/:id'
     end
     erb :'/users/new'
   end
 
   post '/signup' do
-    u = User.new(username: params["username"], email: params["email"], password: params["password"])
-    if u.username.blank? || u.password.blank? || u.email.blank? || User.find_by_email(params["email"])
+    u = User.new(email: params["email"], name: params["name"], password: params["password"])
+    if u.email.blank? || u.name.blank? || u.password.blank? || User.find_by_email(params["email"])
             # Invalid signup!
            redirect '/signup'
         else
