@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   get '/login' do
     if logged_in?
-      redirect '/users/:id'
+      redirect "/users/#{current_user.id}"
     #   if they are logged in, take them to their horses
     end
     erb :'/users/login'
@@ -36,21 +36,21 @@ class UsersController < ApplicationController
             # if user exists and has valid password
             binding.pry
             session[:user_id] = user.id
-            redirect '/users/:id'
+            redirect "/users/#{current_user.id}"
         else
             # if invalid login, display error and redirect somewhere
             redirect '/signup'
         end
   end
 
-    # get '/logout' do
-    #     if logged_in?
-    #         session.destroy
-    #         redirect to '/login'
-    #     else
-    #         redirect to '/'
-    #     end
-    # end
+    get '/logout' do
+        if logged_in?
+            session.destroy
+            redirect to '/login'
+        else
+            redirect to '/'
+        end
+    end
 
     # get '/users/:slug' do
     #     @user = User.all.find{|user| user.slug == params[:slug]}
