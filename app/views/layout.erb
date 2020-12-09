@@ -21,6 +21,9 @@
     <button class="user-nav"><a href="/users/<%=current_user.id%>">Your Horses</a>
     <button class="user-nav"><a href="/horses/new">New Horse</a>
     <button class="user-nav"><a href="/logout">Logout</a>
+    <%else%>
+    <button class="guest-nav"><a href="/login">Login</a>
+    <button class="guest-nav"><a href="/signup">Sign Up</a>
     <%end%>
     </ul>
     </nav>
