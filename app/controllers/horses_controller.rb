@@ -1,6 +1,7 @@
 class HorsesController < ApplicationController
     get '/horses' do
         redirect_if_not_logged_in
+        @users_alpha_sort = User.all_alpha_sort.includes(:horses)
         erb :'/horses/index'
     end
 
