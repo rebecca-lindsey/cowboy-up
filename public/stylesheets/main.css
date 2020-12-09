@@ -15,6 +15,7 @@
   /* --- Welcome Page Styles --- */
   body {
     background-image: url("../images/grass-background.jpg");
+    background-attachment: fixed;
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
@@ -48,6 +49,10 @@
     line-height: 36px;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   p {
     margin-bottom: 18px;
   }
@@ -58,6 +63,29 @@
 
   .user-nav {
     display: inline-block;
+    width: 25%;
+    font-size: 20px;
+    height: 100%;
+    padding: 5px;
+    background-color: hsl(85, 37%, 30%);
+    cursor: pointer;
+    outline: none;
+  }
+
+  .user-nav a {
+    color: hsl(85, 37%, 98%);
+  }
+
+  .user-nav:hover {
+    background-color: hsl(85, 60%, 30%);
+  }
+
+  .horse-link {
+    color: hsl(85, 37%, 30%);
+  }
+
+  .horse-link:hover {
+    color: hsl(85, 100%, 30%);
   }
 
   .content {

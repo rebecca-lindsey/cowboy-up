@@ -16,11 +16,11 @@
   <body>
     <div class="wrapper">
         <nav>
-    <ul><%if logged_in?%>
-    <li class="user-nav"><a href="/horses">Stable</a></li>
-    <li class="user-nav"><a href="/users/<%=current_user.id%>">Your Horses</a></li>
-    <li class="user-nav"><a href="/horses/new">New Horse</a></li>
-    <li class="user-nav"><a href="/logout">Logout</a></li>
+    <%if logged_in?%>
+    <button class="user-nav"><a href="/horses">Stable</a>
+    <button class="user-nav"><a href="/users/<%=current_user.id%>">Your Horses</a>
+    <button class="user-nav"><a href="/horses/new">New Horse</a>
+    <button class="user-nav"><a href="/logout">Logout</a>
     <%end%>
     </ul>
     </nav>
