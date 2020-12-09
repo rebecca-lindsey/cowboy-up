@@ -1,7 +1,7 @@
 <h1>Welcome, <%=current_user.name%></h1>
 <h2>Here are all the horses at the stable</h2>
 <div class="content">
-    <%User.all.sort_by(&:name).each do |user| %>
+    <%User.all.order(:name).each do |user| %>
         <%if user != current_user%>
             <h2><%=user.name%></h2>
             <%user.horses.each do |horse|%>
@@ -12,7 +12,7 @@
 </div>
 <div class="sidebar">
     <h2>Your horses</h2>
-    <%current_user.horses.each do |horse| %>
+    <%current_user.horses.order(:name).each do |horse| %>
         <p><a href="/horses/<%=horse.id%>"><b><%=horse.name%></b></a></p>
     <%end%>
 </div>

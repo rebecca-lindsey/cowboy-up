@@ -15,6 +15,15 @@
   </head>
   <body>
     <div class="wrapper">
+        <nav>
+    <ul><%if logged_in?%>
+    <li class="user-nav"><a href="/horses">Stable</a></li>
+    <li class="user-nav"><a href="/users/show">Your Horses</a></li>
+    <li class="user-nav"><a href="/horses/new">New Horse</a></li>
+    <li class="user-nav"><a href="/logout">Logout</a></li>
+    <%end%>
+    </ul>
+    </nav>
 
         <%= yield %>
 
