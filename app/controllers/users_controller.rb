@@ -52,11 +52,6 @@ class UsersController < ApplicationController
         end
     end
 
-    # get '/users/:slug' do
-    #     @user = User.all.find{|user| user.slug == params[:slug]}
-    #     erb :'/users/show'
-    # end
-
     get '/users/:id' do
         @user = User.all.find{|user| user.id.to_s == params[:id]}
         erb :'/users/show'
