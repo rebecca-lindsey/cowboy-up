@@ -1,11 +1,11 @@
 class HorsesController < ApplicationController
     get '/horses' do
-        # Redirect if not logged in
+        redirect_if_not_logged_in
         erb :'/horses/index'
     end
 
     get '/horses/new' do
-        # Redirect if not logged in
+        redirect_if_not_logged_in
         erb :'/horses/new'
     end
 
@@ -30,5 +30,12 @@ class HorsesController < ApplicationController
     delete '/horses/:id' do
         # Fill out with horse delete
     end
+
+    private
+  def redirect_if_not_logged_in
+    if !logged_in?
+      redirect '/login'
+    end
+  end
 
 end
