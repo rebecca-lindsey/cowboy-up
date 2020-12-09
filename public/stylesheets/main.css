@@ -61,7 +61,7 @@
     overflow: hidden;
   }
 
-  .user-nav {
+  nav button {
     display: inline-block;
     width: 25%;
     font-size: 20px;
@@ -72,11 +72,15 @@
     outline: none;
   }
 
-  .user-nav a {
+  nav button a {
     color: hsl(85, 37%, 98%);
   }
 
-  .user-nav:hover {
+  nav {
+    text-align: center;
+  }
+
+  nav > button:hover {
     background-color: hsl(85, 60%, 30%);
   }
 
