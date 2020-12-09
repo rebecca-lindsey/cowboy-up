@@ -14,8 +14,9 @@ class HorsesController < ApplicationController
     end
 
     get '/horses/:id' do
+        redirect_if_not_logged_in
         @horse = Horse.all.find{|horse| horse.id.to_s == params[:id]}
-        erb :'/horses/show'
+        erb :'/horses/show' if @horse
     end
 
     get '/horses/:id/edit' do
@@ -28,7 +29,12 @@ class HorsesController < ApplicationController
     end
 
     delete '/horses/:id' do
-        # Fill out with horse delete
+        redirect_if_not_logged_in
+            @horse = Horse.find_by_id(params[:id])
+            if @horse && @horse.user == current_user
+                @horse.delete
+            end
+        redirect to '/horses/index'
     end
 
     private

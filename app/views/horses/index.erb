@@ -4,7 +4,7 @@
     <%User.all.order(:name).each do |user| %>
         <%if user != current_user%>
             <h2><%=user.name%></h2>
-            <%user.horses.each do |horse|%>
+            <%user.horses.order(:name).each do |horse|%>
                 <p><a href="/horses/<%=horse.id%>"><b><%=horse.name%></b></a></p>
             <%end%>
         <%end%>
