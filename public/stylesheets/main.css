@@ -10,7 +10,7 @@
     background-image: url("../images/grass-background.jpg");
     background-attachment: fixed;
     color: rgb(51, 51, 51);
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 20px;
   }
 
@@ -64,7 +64,7 @@
     padding-bottom: 10px;
   }
 
-  nav a button{
+  nav a button {
     display: inline-block;
     width: 24%;
     font-size: 20px;
@@ -81,7 +81,26 @@
     padding-bottom: 10px;
   }
 
-  nav a button:hover {
+  a button:hover {
+    background-color: hsl(85, 60%, 30%);
+  }
+
+  #button-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 250px;
+    padding-left: 10px;
+  }
+
+  .update {
+    background-color: hsl(85, 37%, 30%);
+    font-size: 20px;
+    color: hsl(85, 37%, 98%);
+    padding: 5px;
+  }
+
+  .update:hover {
     background-color: hsl(85, 60%, 30%);
   }
 
@@ -115,7 +134,7 @@
   }
 
   .color-horse-bay {
-    color: #BE642F;
+    color: #be642f;
   }
 
   .color-horse-white {
@@ -127,31 +146,31 @@
   }
 
   .color-horse-chestnut {
-    color: #A0512A
+    color: #a0512a;
   }
 
   .color-horse-brown {
-    color: #5C3A2E
+    color: #5c3a2e;
   }
 
   .color-horse-gold {
-    color: #E19758
+    color: #e19758;
   }
 
   .color-horse-gray {
-    color: #696866
+    color: #696866;
   }
 
   .color-horse-champagne {
-    color: #CAAB8C
+    color: #caab8c;
   }
 
   .color-horse-cream {
-    color: #DECFB8
+    color: #decfb8;
   }
 
   .color-horse-roan {
-    color: #753D22
+    color: #753d22;
   }
 
   .content {
@@ -174,7 +193,7 @@
     bottom: 1vh;
     width: 100%;
   }
-
+}
 
 @media screen and (max-width: 600px) {
   .wrapper {
