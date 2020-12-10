@@ -15,16 +15,29 @@
 
   .wrapper {
     background: hsl(85, 37%, 98%);
-    margin: 0 auto;
+    margin: 4vh auto 4vh auto;
     max-width: 960px;
     padding: 1vh; /* 18px / 800px */
     width: 85%;
-    min-height: 98vh;
+    min-height: 90vh;
     overflow: hidden;
+    position: relative;
+  }
+
+  .main-content {
+    padding-bottom: 1vh;
   }
 
   a {
     text-decoration: none;
+  }
+
+  #banner {
+    font-family: "Smokum", cursive;
+    text-align: center;
+    font-size: 50px;
+    color: hsl(85, 37%, 30%);
+    padding-bottom: 10px;
   }
 
   nav button {
@@ -58,6 +71,10 @@
     color: hsl(85, 100%, 30%);
   }
 
+  .color-horse {
+    font-size: 30px;
+  }
+
   .content {
     float: left;
     width: 60%; /* 480px / 800px */
@@ -65,22 +82,19 @@
 
   .sidebar {
     float: right;
-    width: 30%; /* 240px / 800px */
-  }
-
-  .branding {
-    clear: both;
+    width: 30%;
   }
 
   footer.branding {
-    border-top: 2px solid #ccc;
-    padding-top: 20px;
+    position: absolute;
+    bottom: 1vh;
+    width: 100%;
   }
-}
+
 
 @media screen and (max-width: 600px) {
   .wrapper {
-    width: auto;
+    min-width: 500px;
   }
 
   .content,

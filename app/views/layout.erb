@@ -12,9 +12,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
+    <script src="https://kit.fontawesome.com/7cab27a977.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Smokum&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="wrapper">
+    <h1 id="banner">Cowboy Up</h1>
         <nav>
     <%if logged_in?%>
     <button class="user-nav"><a href="/horses">Stable</a>
@@ -29,7 +33,6 @@
     </nav>
 
         <%= yield %>
-
       <footer class="branding">
         <small>&copy; 2020 <strong>Cowboy Up</strong></small>
       </footer>
