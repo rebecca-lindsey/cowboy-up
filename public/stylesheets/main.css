@@ -85,6 +85,11 @@
     background-color: hsl(85, 60%, 30%);
   }
 
+  input,
+  select {
+    font-size: 20px;
+  }
+
   #button-box {
     display: flex;
     flex-direction: row;
@@ -93,14 +98,14 @@
     padding-left: 10px;
   }
 
-  .update {
+  .small-button {
     background-color: hsl(85, 37%, 30%);
     font-size: 20px;
     color: hsl(85, 37%, 98%);
     padding: 5px;
   }
 
-  .update:hover {
+  .small-button:hover {
     background-color: hsl(85, 60%, 30%);
   }
 

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   get '/signup' do
     if logged_in?
-        redirect '/users/:id'
+        redirect "/users/#{current_user.id}"
     end
     erb :'/users/new'
   end
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
             u.save
             session[:user_id] = u.id
             # Signs in user and sends them to their horses
-            redirect '/users/:id'
+            redirect "/users/#{u.id}"
         end
   end
 
