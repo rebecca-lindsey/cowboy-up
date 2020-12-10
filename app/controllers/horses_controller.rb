@@ -73,7 +73,7 @@ class HorsesController < ApplicationController
   end
 
   def invalid_input?
-    color_arr = ["Appaloosa", "Bay", "Bay Dapple", "Black", "Brown", "Buckskin", "Champagne", "Chestnut", "Cream", "Dun", "Flaxen Chestnut", "Gray", "Grulla", "Palomino", "Roan" "Silver Dapple", "White"]
+    color_arr = ["Appaloosa", "Bay", "Bay Dapple", "Black", "Brown", "Buckskin", "Champagne", "Chestnut", "Cream", "Dun", "Flaxen Chestnut", "Gray", "Grulla", "Palomino", "Roan", "Silver Dapple", "White"]
     sex_arr = ["Stallion", "Mare", "Gelding"]
     true if !color_arr.include?(params[:color]) || !sex_arr.include?(params[:sex]) || params[:name].length > 18 || params[:breed].length > 40
   end
