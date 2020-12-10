@@ -16,8 +16,13 @@
 </div>
 
 <div class="sidebar">
+    <% if current_user.horses.empty?%>
+        <h2>You don't have any horses!</h2>
+        <a href="/horses/new"><button class="small-button">Create a new horse</button></a>
+    <%else%>
     <h2>Your horses</h2>
     <%current_user.horses.order(:name).each do |horse| %>
         <li><a class="horse-link" href="/horses/<%=horse.id%>"><b><%=horse.name%></b></a></li>
+    <%end%>
     <%end%>
 </div>
