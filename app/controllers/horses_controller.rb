@@ -11,37 +11,64 @@ class HorsesController < ApplicationController
     end
 
     post '/horses' do
-        # Fill out with horse creation
+        if params[:name].blank? || params[:sex].blank? || params[:color].blank? || params[:breed].blank? || Horse.find_by(name: params[:name])
+            redirect '/horses/new'
+        end
+        @horse = Horse.new(name: params[:name], sex: params[:sex], color: params[:color], breed: params[:breed])
+        redirect_if_not_authorized
+        current_user.horses << @horse
+        redirect "users/#{current_user.id}"
     end
 
     get '/horses/:id' do
         redirect_if_not_logged_in
-        @horse = Horse.all.find{|horse| horse.id.to_s == params[:id]}
-        erb :'/horses/show' if @horse
+        @horse = Horse.find_by_id(params[:id])
+        redirect_if_no_horse
+        erb :'/horses/show'
     end
 
     get '/horses/:id/edit' do
-        @horse = Horse.all.find{|horse| horse.id.to_s == params[:id]}
+        @horse = Horse.find_by_id(params[:id])
+        redirect_if_not_authorized
         erb :'/horses/edit'
     end
 
     patch '/horses/:id' do
-        # Fill out with horse edit
+        @horse = Horse.find_by_id(params[:id])
+        redirect_if_not_authorized
+        if params[:name].blank? || params[:sex].blank? || params[:color].blank? || params[:breed].blank? || Horse.find_by(name: params[:name])
+                redirect "/horses/#{params[:id]}/edit"
+        else
+            @horse.update(name: params[:name], sex: params[:sex], color: params[:color], breed: params[:breed])
+                redirect "/horses/#{@horse.id}"
+        end
     end
 
     delete '/horses/:id' do
-        redirect_if_not_logged_in
-            @horse = Horse.find_by_id(params[:id])
-            if @horse && @horse.user == current_user
-                @horse.delete
-            end
-        redirect to '/horses/index'
+        @horse = Horse.find_by_id(params[:id])
+        redirect_if_not_authorized
+        @horse.delete
+        redirect to "/users/#{current_user.id}"
     end
 
     private
   def redirect_if_not_logged_in
     if !logged_in?
       redirect '/login'
+    end
+  end
+
+    def redirect_if_not_authorized
+    if !logged_in?
+        redirect '/login'
+    elsif !@horse || current_user != @horse.user
+        redirect '/horses'
+    end
+  end
+
+  def redirect_if_no_horse
+    if !@horse
+        redirect "/horses"
     end
   end
 

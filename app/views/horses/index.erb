@@ -4,9 +4,11 @@
     <%@users_alpha_sort.each do |user| %>
         <%if user != current_user%>
             <h2><%=user.name%></h2>
+            <ul>
             <%user.horses.each do |horse|%>
-                    <p><a class="horse-link" href="/horses/<%=horse.id%>"><b><%=horse.name%></b></a></p>
+                    <li><a class="horse-link" href="/horses/<%=horse.id%>"><b><%=horse.name%></b></a></li>
             <%end%>
+            </ul>
         <%end%>
     <%end%>
 </div>
