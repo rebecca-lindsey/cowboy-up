@@ -11,8 +11,8 @@ class HorsesController < ApplicationController
     end
 
     post '/horses' do
-        if params[:name].blank? || params[:sex].blank? || params[:color].blank? || params[:breed].blank? || Horse.find_by(name: params[:name])
-            redirect '/horses/new'
+        if invalid_input? || blank_input? || invalid_name?
+            redirect "/horses/new"
         end
         @horse = Horse.new(name: params[:name], sex: params[:sex], color: params[:color], breed: params[:breed])
         redirect_if_not_logged_in
@@ -36,11 +36,11 @@ class HorsesController < ApplicationController
     patch '/horses/:id' do
         @horse = Horse.find_by_id(params[:id])
         redirect_if_not_authorized
-        if params[:name].blank? || params[:sex].blank? || params[:color].blank? || params[:breed].blank? || @horse != Horse.find_by(name: params[:name])
-                redirect "/horses/#{params[:id]}/edit"
+        if invalid_input? || blank_input? || invalid_name?
+            redirect "/horses/#{params[:id]}/edit"
         else
             @horse.update(name: params[:name], sex: params[:sex], color: params[:color], breed: params[:breed])
-                redirect "/horses/#{@horse.id}"
+            redirect "/horses/#{@horse.id}"
         end
     end
 
@@ -70,6 +70,20 @@ class HorsesController < ApplicationController
     if !@horse
         redirect "/horses"
     end
+  end
+
+  def invalid_input?
+    color_arr = ["Appaloosa", "Bay", "Bay Dapple", "Black", "Brown", "Buckskin", "Champagne", "Chestnut", "Cream", "Dun", "Flaxen Chestnut", "Gray", "Grulla", "Palomino", "Roan" "Silver Dapple", "White"]
+    sex_arr = ["Stallion", "Mare", "Gelding"]
+    true if !color_arr.include?(params[:color]) || !sex_arr.include?(params[:sex]) || params[:name].length > 18 || params[:breed].length > 40
+  end
+
+  def blank_input?
+    true if params[:name].blank? || params[:sex].blank? || params[:color].blank? || params[:breed].blank?
+  end
+
+  def invalid_name?
+    true if Horse.find_by(name: params[:name]) && @horse != Horse.find_by(name: params[:name])
   end
 
 end

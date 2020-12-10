@@ -26,6 +26,3 @@ class Horse < ActiveRecord::Base
         end
     end
 end
-
-        # <option value = "Grulla">Grulla</option>
-        # <option value = "Roan">Roan</option>
