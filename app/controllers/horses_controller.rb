@@ -15,7 +15,7 @@ class HorsesController < ApplicationController
             redirect '/horses/new'
         end
         @horse = Horse.new(name: params[:name], sex: params[:sex], color: params[:color], breed: params[:breed])
-        redirect_if_not_authorized
+        redirect_if_not_logged_in
         current_user.horses << @horse
         redirect "users/#{current_user.id}"
     end
@@ -24,6 +24,7 @@ class HorsesController < ApplicationController
         redirect_if_not_logged_in
         @horse = Horse.find_by_id(params[:id])
         redirect_if_no_horse
+        @color = Horse.color_selector(@horse.color)
         erb :'/horses/show'
     end
 

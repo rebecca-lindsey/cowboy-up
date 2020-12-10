@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   post '/signup' do
     u = User.new(email: params["email"], name: params["name"], password: params["password"])
     if u.email.blank? || u.name.blank? || u.password.blank? || User.find_by_email(params["email"])
-            # Invalid signup!
+            # Invalid signup
            redirect '/signup'
         else
             # Valid signup

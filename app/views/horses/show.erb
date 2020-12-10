@@ -1,7 +1,7 @@
-<h1><%=@horse.name%></h1>
-<div class="content">
-<h2>Owner: <%=@horse.user.name%></h2>
+<div id="content">
+<div id="horse-header"><i class="fas fa-horse color-horse-<%=@color%>"></i><h1><%=@horse.name%></h1></div>
 <ul>
+<li>Owner: <%=@horse.user.name%></li>
 <li>Sex: <%=@horse.sex%></li>
 <li>Color: <%=@horse.color%></li>
 <li>Breed: <%=@horse.breed%></li>
@@ -15,6 +15,4 @@
    </form>
    <%end%>
 </div>
-<div class="sidebar">
-<i class="fas fa-horse color-horse"></i>
 </div>

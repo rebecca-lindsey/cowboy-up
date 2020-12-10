@@ -1,5 +1,5 @@
-<h1>Hello, <%=@user.name%></h1>
-<h2>Here are your horses:</h2>
+<h1>All your horses</h1>
+<hr>
 <ul><%@user.horses.each do |horse|%>
-<li><i class="fas fa-horse"></i><a class="horse-link" href="/horses/<%=horse.id%>"><b><%=horse.name%></b></a></li>
+<li><i class="fas fa-horse color-horse-<%=Horse.color_selector(horse.color)%>"></i><a class="horse-link" href="/horses/<%=horse.id%>"><b><%=horse.name%></b></a></li>
 <%end%></ul>
