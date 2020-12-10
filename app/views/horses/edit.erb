@@ -1,7 +1,9 @@
+<% redirect_if_not_authorized %>
+
 <h1>Edit <%=@horse.name%></h1>
 
-<% redirect_if_not_authorized %>
-  <form action='/horses' method="post">
+  <form action='/horses/<%=@horse.id%>' method="post">
+  <input type="hidden" name="_method" value="PATCH">
     <p>Name: <input type="text" name="name" maxlength="18" value="<%=@horse.name%>"></p>
     <p>Sex:
     <input type="radio" id="gelding" name="sex" value="Gelding"

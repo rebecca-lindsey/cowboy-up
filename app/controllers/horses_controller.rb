@@ -24,7 +24,6 @@ class HorsesController < ApplicationController
         redirect_if_not_logged_in
         @horse = Horse.find_by_id(params[:id])
         redirect_if_no_horse
-        @color = Horse.color_selector(@horse.color)
         erb :'/horses/show'
     end
 
@@ -37,7 +36,7 @@ class HorsesController < ApplicationController
     patch '/horses/:id' do
         @horse = Horse.find_by_id(params[:id])
         redirect_if_not_authorized
-        if params[:name].blank? || params[:sex].blank? || params[:color].blank? || params[:breed].blank? || Horse.find_by(name: params[:name])
+        if params[:name].blank? || params[:sex].blank? || params[:color].blank? || params[:breed].blank? || @horse != Horse.find_by(name: params[:name])
                 redirect "/horses/#{params[:id]}/edit"
         else
             @horse.update(name: params[:name], sex: params[:sex], color: params[:color], breed: params[:breed])
