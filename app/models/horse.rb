@@ -1,8 +1,8 @@
 class Horse < ActiveRecord::Base
     belongs_to :user
 
-    def self.color_selector(color)
-        case color
+    def color_selector
+        case self.color
         when "Bay", "Bay Dapple"
             "bay"
         when "Appaloosa", "White"
