@@ -1,5 +1,5 @@
-<%if logged_in?%>
 <h1><%=@horse.name%></h1>
+<div class="content">
 <h2>Owner: <%=@horse.user.name%></h2>
 <ul>
 <li>Sex: <%=@horse.sex%></li>
@@ -14,4 +14,7 @@
       <input type="submit" value="Delete Horse">
    </form>
    <%end%>
-<%end%>
+</div>
+<div class="sidebar">
+<i class="fas fa-horse color-horse"></i>
+</div>

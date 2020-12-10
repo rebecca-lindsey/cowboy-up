@@ -33,7 +33,6 @@ class UsersController < ApplicationController
   post '/login' do
     user = User.find_by_email(params[:email])
         if user && user.authenticate(params[:password])
-            # if user exists and has valid password
             session[:user_id] = user.id
             redirect "/users/#{current_user.id}"
         else
