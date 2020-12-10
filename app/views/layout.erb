@@ -21,7 +21,7 @@
     <h1 id="banner">Cowboy Up</h1>
         <nav>
     <%if logged_in?%>
-    <a href="/horses" class= "button user-nav"><button class="user-nav">Stable</button></a>
+    <a href="/horses"><button class="user-nav">Stable</button></a>
     <a href="/users/<%=current_user.id%>"><button class="user-nav">Your Horses</button></a>
     <a href="/horses/new"><button class="user-nav">New Horse</button></a>
     <a href="/logout"><button class="user-nav">Logout</button></a>

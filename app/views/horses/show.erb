@@ -7,12 +7,15 @@
 <li>Breed: <%=@horse.breed%></li>
 </ul>
 <%if @horse.user == current_user%>
-   <a href="/horses/<%=@horse.id%>/edit">Edit Horse</a>
+<div id="button-box">
+   <a href="/horses/<%=@horse.id%>/edit"><button class="update">Edit Horse</button></a>
 
    <form method="POST" action="/horses/<%= @horse.id %>">
       <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Delete Horse">
+      <input type="submit" value="Delete Horse" class="update">
    </form>
    <%end%>
 </div>
 </div>
+
+<%# <a href="/horses"><button class="user-nav">Stable</button></a> %>
