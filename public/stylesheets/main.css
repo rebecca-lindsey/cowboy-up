@@ -10,7 +10,8 @@
     background-image: url("../images/grass-background.jpg");
     background-attachment: fixed;
     color: rgb(51, 51, 51);
-    font-family: Sans-Serif;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
   }
 
   .wrapper {
@@ -28,39 +29,76 @@
     padding-bottom: 1vh;
   }
 
+  li {
+    margin-left: 10px;
+    padding-bottom: 2px;
+  }
+
+  ul {
+    padding-bottom: 10px;
+  }
+
   a {
     text-decoration: none;
+  }
+
+  h1 {
+    padding-bottom: 5px;
+    font-size: 35px;
+  }
+
+  h2 {
+    padding-bottom: 5px;
+    font-size: 25px;
+  }
+
+  p {
+    padding-bottom: 5px;
   }
 
   #banner {
     font-family: "Smokum", cursive;
     text-align: center;
-    font-size: 50px;
+    font-size: 75px;
     color: hsl(85, 37%, 30%);
     padding-bottom: 10px;
   }
 
-  nav button {
+  nav a button{
     display: inline-block;
-    width: 25%;
+    width: 24%;
     font-size: 20px;
     height: 100%;
-    padding: 5px;
+    padding: 5px 0 5px 0;
     background-color: hsl(85, 37%, 30%);
     cursor: pointer;
     outline: none;
-  }
-
-  nav button a {
     color: hsl(85, 37%, 98%);
   }
 
   nav {
     text-align: center;
+    padding-bottom: 10px;
   }
 
-  nav > button:hover {
+  nav a button:hover {
     background-color: hsl(85, 60%, 30%);
+  }
+
+  #main-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  #signed-in-name {
+    float: right;
+  }
+
+  #horse-header {
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    align-items: baseline;
   }
 
   .horse-link {
@@ -71,8 +109,49 @@
     color: hsl(85, 100%, 30%);
   }
 
-  .color-horse {
-    font-size: 30px;
+  i {
+    font-size: 50px;
+    padding-top: 20px;
+  }
+
+  .color-horse-bay {
+    color: #BE642F;
+  }
+
+  .color-horse-white {
+    color: #e2e4e4;
+  }
+
+  .color-horse-black {
+    color: #000000;
+  }
+
+  .color-horse-chestnut {
+    color: #A0512A
+  }
+
+  .color-horse-brown {
+    color: #5C3A2E
+  }
+
+  .color-horse-gold {
+    color: #E19758
+  }
+
+  .color-horse-gray {
+    color: #696866
+  }
+
+  .color-horse-champagne {
+    color: #CAAB8C
+  }
+
+  .color-horse-cream {
+    color: #DECFB8
+  }
+
+  .color-horse-roan {
+    color: #753D22
   }
 
   .content {
@@ -83,6 +162,11 @@
   .sidebar {
     float: right;
     width: 30%;
+  }
+
+  .stable-display {
+    padding-top: 10px;
+    padding-bottom: 50px;
   }
 
   footer.branding {

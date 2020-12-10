@@ -1,6 +1,7 @@
-<h1>Welcome, <%=current_user.name%></h1>
-<h2>Here are all the horses at the stable</h2>
+<h1>All the horses at the stable</h1>
+<hr>
 <div class="content">
+<div class="stable-display">
     <%@users_alpha_sort.each do |user| %>
         <%if user != current_user%>
             <h2><%=user.name%></h2>
@@ -11,11 +12,12 @@
             </ul>
         <%end%>
     <%end%>
+    </div>
 </div>
 
 <div class="sidebar">
     <h2>Your horses</h2>
     <%current_user.horses.order(:name).each do |horse| %>
-        <p><a class="horse-link" href="/horses/<%=horse.id%>"><b><%=horse.name%></b></a></p>
+        <li><a class="horse-link" href="/horses/<%=horse.id%>"><b><%=horse.name%></b></a></li>
     <%end%>
 </div>

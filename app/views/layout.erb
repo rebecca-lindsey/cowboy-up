@@ -21,18 +21,22 @@
     <h1 id="banner">Cowboy Up</h1>
         <nav>
     <%if logged_in?%>
-    <button class="user-nav"><a href="/horses">Stable</a>
-    <button class="user-nav"><a href="/users/<%=current_user.id%>">Your Horses</a>
-    <button class="user-nav"><a href="/horses/new">New Horse</a>
-    <button class="user-nav"><a href="/logout">Logout</a>
+    <a href="/horses" class= "button user-nav"><button class="user-nav">Stable</button></a>
+    <a href="/users/<%=current_user.id%>"><button class="user-nav">Your Horses</button></a>
+    <a href="/horses/new"><button class="user-nav">New Horse</button></a>
+    <a href="/logout"><button class="user-nav">Logout</button></a>
     <%else%>
-    <button class="guest-nav"><a href="/login">Login</a>
-    <button class="guest-nav"><a href="/signup">Sign Up</a>
+    <a href="/login"><button class="guest-nav">Login</button></a>
+    <a href="/signup"><button class="guest-nav">Sign Up</button></a>
     <%end%>
     </ul>
     </nav>
-
+    <div id="main-content">
+    <%if logged_in?%>
+    <p id="signed-in-name">Signed in as <%=current_user.name%></p>
+    <%end%>
         <%= yield %>
+    </div>
       <footer class="branding">
         <small>&copy; 2020 <strong>Cowboy Up</strong></small>
       </footer>
