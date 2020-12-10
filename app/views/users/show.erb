@@ -1,5 +1,5 @@
 <h1>Hello, <%=@user.name%></h1>
 <h2>Here are your horses:</h2>
 <ul><%@user.horses.each do |horse|%>
-<li><%=horse.name%></li>
+<li><a class="horse-link" href="/horses/<%=horse.id%>"><b><%=horse.name%></b></a></li>
 <%end%></ul>
