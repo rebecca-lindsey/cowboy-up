@@ -8,8 +8,8 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    u = User.new(email: params["email"], name: params["name"], password: params["password"])
-    if u.email.blank? || u.name.blank? || u.password.blank? || User.find_by_email(params["email"])
+    u = User.new(email: params["email"], name: params["name"].titleize, password: params["password"])
+    if u.email.blank? || u.name.blank? || u.password.blank? || User.find_by_email(params["email"]) || !URI::MailTo::EMAIL_REGEXP.match?(params["email"])
             # Invalid signup
            redirect '/signup'
         else
