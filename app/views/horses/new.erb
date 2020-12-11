@@ -4,34 +4,18 @@
   <form action='/horses' method="post">
     <p>Name: <input type="text" name="name" maxlength="18"></p>
     <p>Sex:
-    <input type="radio" id="gelding" name="sex" value="Gelding"
-         checked>
-        <label for="gelding">Gelding</label>
-    <input type="radio" id="mare" name="sex" value="Mare">
-        <label for="mare">Mare</label>
-    <input type="radio" id="stallion" name="sex" value="Stallion">
-        <label for="stallion">Stallion</label>
-  </p>
+    <%@sexes.each do |sex|%>
+      <input type="radio" name="sex" value="<%=sex%>" <%="checked" if sex == "Mare"%>>
+      <label for="<%=sex%>"><%=sex%></label>
+    <%end%>
+    </p>
     <p>Color:
     <select name = "color">
-        <option value = "Appaloosa">Appaloosa</option>
-        <option value = "Bay">Bay</option>
-        <option value = "Bay Dapple">Bay Dapple</option>
-        <option value = "Black">Black</option>
-        <option value = "Brown">Brown</option>
-        <option value = "Buckskin">Buckskin</option>
-        <option value = "Champagne">Champagne</option>
-        <option value = "Chestnut">Chestnut</option>
-        <option value = "Cream">Cream</option>
-        <option value = "Dun">Dun</option>
-        <option value = "Flaxen Chestnut">Flaxen Chestnut</option>
-        <option value = "Gray">Gray</option>
-        <option value = "Grulla">Grulla</option>
-        <option value = "Palomino">Palomino</option>
-        <option value = "Roan">Roan</option>
-        <option value = "Silver Dapple">Silver Dapple</option>
-        <option value = "White">White</option>
-    </select></p>
+    <%@colors.each do |color|%>
+    <option value = "<%=color%>"><%=color%></option>
+    <%end%>
+    </select>
+    </p>
     <p>Breed: <input type="text" name="breed" maxlength="40"></p>
     <p><input type="submit" name="submit" id="new-submit" value="Create new horse" class="small-button"></p>
   </form>

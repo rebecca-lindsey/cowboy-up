@@ -1,6 +1,14 @@
 class Horse < ActiveRecord::Base
     belongs_to :user
 
+    def self.color_list
+        color_arr = ["Appaloosa", "Bay", "Bay Dapple", "Black", "Brown", "Buckskin", "Champagne", "Chestnut", "Cream", "Dun", "Flaxen Chestnut", "Gray", "Grulla", "Palomino", "Roan", "Silver Dapple", "White"]
+    end
+
+    def self.sex_list
+        sex_arr = ["Mare", "Stallion", "Gelding"]
+    end
+
     def color_selector
         case self.color
         when "Bay", "Bay Dapple"
