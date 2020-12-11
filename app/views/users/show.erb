@@ -1,3 +1,4 @@
+<div class="content">
 <% if @user.horses.empty?%>
 <h1>You don't have any horses yet!</h1>
 <a href="/horses/new"><button class="small-button">Create a new horse</button></a>
@@ -9,3 +10,10 @@
 <%end%>
 </ul>
 <%end%>
+</div>
+<div class="sidebar">
+   <form id="user-delete" method="POST" action="/users/<%= @user.id %>">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Delete Your Account" class="small-button">
+   </form>
+</div>
