@@ -1,6 +1,6 @@
 <h1>Edit <%=@horse.name%></h1>
 
-  <form action='/horses/<%=@horse.id%>' method="post">
+  <form action='/horses/<%=@horse.slug%>' method="post">
   <input type="hidden" name="_method" value="PATCH">
     <p>Name: <input type="text" name="name" maxlength="18" value="<%=@horse.name%>"></p>
     <p>Sex:

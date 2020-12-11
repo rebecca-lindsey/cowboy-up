@@ -8,9 +8,9 @@
 </ul>
 <%if @horse.user == current_user%>
 <div id="button-box">
-   <a href="/horses/<%=@horse.id%>/edit"><button class="small-button">Edit Horse</button></a>
+   <a href="/horses/<%=@horse.slug%>/edit"><button class="small-button">Edit Horse</button></a>
 
-   <form method="POST" action="/horses/<%= @horse.id %>">
+   <form method="POST" action="/horses/<%= @horse.slug %>">
       <input type="hidden" name="_method" value="DELETE">
       <input type="submit" value="Delete Horse" class="small-button">
    </form>

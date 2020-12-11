@@ -201,7 +201,8 @@
 
   .content {
     float: left;
-    width: 55%; /* 480px / 800px */
+    width: 55%;
+    padding-bottom: 20px;
   }
 
   .sidebar {

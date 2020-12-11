@@ -37,4 +37,12 @@ class Horse < ActiveRecord::Base
             "roan"
         end
     end
+
+    def slug
+        self.name.downcase.gsub(" ","-")
+    end
+
+    def self.find_by_slug(slug)
+        self.all.find{|horse| horse.slug == slug}
+    end
 end
