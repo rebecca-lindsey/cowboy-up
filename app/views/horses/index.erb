@@ -6,7 +6,7 @@
         <%if user != current_user%>
             <h2><%=user.name%></h2>
             <ul>
-            <%user.horses.each do |horse|%>
+            <%user.horses.sort_by(&:name).each do |horse|%>
                     <li><a class="horse-link" href="/horses/<%=horse.slug%>"><b><%=horse.name%></b></a></li>
             <%end%>
             </ul>
@@ -21,7 +21,7 @@
         <a href="/horses/new"><button class="small-button">Create a new horse</button></a>
     <%else%>
     <h2>Your horses</h2>
-    <%current_user.horses.order(:name).each do |horse| %>
+    <%current_user.horses.sort_by(&:name).each do |horse| %>
         <li><a class="horse-link" href="/horses/<%=horse.slug%>"><b><%=horse.name%></b></a></li>
     <%end%>
     <%end%>
