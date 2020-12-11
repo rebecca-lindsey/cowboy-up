@@ -1,5 +1,3 @@
-<% redirect_if_not_authorized %>
-
 <h1>Edit <%=@horse.name%></h1>
 
   <form action='/horses/<%=@horse.id%>' method="post">
@@ -18,6 +16,13 @@
       <%end%>
       </select>
     </p>
-    <p>Breed: <input type="text" name="breed" maxlength="40" value="<%=@horse.breed%>"></p>
+    <p>Breed:
+      <input type="text" name="breed" maxlength="40" value="<%=@horse.breed%>" list="breed_list">
+      <datalist id="breed_list">
+        <%@breeds.each do |breed|%>
+          <option value="<%=breed%>"><%=breed%></option>
+        <%end%>
+      </datalist>
+    </p>
     <p><input type="submit" name="submit" id="edit-submit" class="small-button"></p>
   </form>
