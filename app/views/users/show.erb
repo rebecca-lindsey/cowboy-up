@@ -6,7 +6,7 @@
         <h1>All your horses</h1>
         <hr>
         <ul>
-        <%@user.horses.each do |horse|%>
+        <%@user.horses.sort_by(&:name).each do |horse|%>
             <li><i class="fas fa-horse color-horse-<%=horse.color_selector%>"></i><a class="horse-link" href="/horses/<%=horse.slug%>"><b><%=horse.name%></b></a></li>
         <%end%>
         </ul>

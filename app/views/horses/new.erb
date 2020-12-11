@@ -17,11 +17,11 @@
     </select>
     </p>
     <p>Breed:
-    <input type="text" name="breed" maxlength="40" list="breed_list" placeholder="Max Length: 18 Characters">
+    <input type="text" name="breed" maxlength="40" list="breed_list" placeholder="Max Length: 40 Characters">
       <datalist id="breed_list">
         <%@breeds.each do |breed|%>
           <option value="<%=breed%>"><%=breed%></option>
         <%end%>
       </datalist></p>
-    <p><input type="submit" name="submit" id="new-submit" value="Create new horse" class="small-button"></p>
+    <p><input type="submit" value="Create new horse" class="small-button"></p>
   </form>
