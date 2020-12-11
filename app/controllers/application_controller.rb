@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    logged_in? ? erb :"horses/index" : erb :index
+    logged_in? ? (redirect "/horses") : (erb :index)
   end
 
   helpers do
