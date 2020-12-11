@@ -100,6 +100,14 @@
     padding-bottom: 10px;
   }
 
+  small a {
+    color: hsl(85, 37%, 30%);
+  }
+
+  small a:hover {
+    color: hsl(85, 60%, 30%);
+  }
+
   a button:hover {
     background-color: hsl(85, 60%, 30%);
   }
