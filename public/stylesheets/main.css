@@ -60,11 +60,14 @@
     padding-bottom: 20px;
   }
 
+  #user-delete {
+    float: right;
+  }
+
   h2 {
     padding-top: 10px;
     padding-bottom: 5px;
     font-size: 25px;
-    color: hsl(85, 37%, 30%);
   }
 
   p {

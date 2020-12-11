@@ -33,19 +33,32 @@ class UsersController < ApplicationController
     end
   end
 
-    get '/logout' do
-      session.destroy if logged_in?
-      redirect to '/'
-    end
+  get '/logout' do
+    session.destroy if logged_in?
+    redirect to '/'
+  end
 
-    get '/users/:id' do
-      @user = User.all.find{|user| user.id.to_s == params[:id]}
-      erb :'/users/show'
-    end
+  get '/users/:id' do
+    @user = User.all.find{|user| user.id.to_s == params[:id]}
+    erb :'/users/show'
+  end
+
+  delete '/users/:id' do
+    @user = User.find(params[:id])
+    redirect_if_not_authorized
+    @user.delete
+    session.destroy
+    redirect to "/"
+  end
 
 
     private
     def invalid_signup?
       true if u.email.blank? || u.name.blank? || u.password.blank? || User.find_by_email(params["email"].downcase) || !URI::MailTo::EMAIL_REGEXP.match?(params["email"])
+    end
+
+    def redirect_if_not_authorized
+      redirect '/login' if !logged_in?
+      redirect "/users/#{current_user.id}" if !@user || current_user != @user
     end
 end
