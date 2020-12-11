@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   delete '/users/:id' do
     @user = User.find(params[:id])
     redirect_if_not_authorized
-    @user.delete
+    @user.destroy
     session.destroy
     redirect to "/"
   end
