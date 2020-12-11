@@ -7,6 +7,8 @@ class HorsesController < ApplicationController
 
     get '/horses/new' do
         redirect_if_not_logged_in
+        @colors = Horse.color_list
+        @sexes = Horse.sex_list
         erb :'/horses/new'
     end
 
@@ -29,6 +31,8 @@ class HorsesController < ApplicationController
 
     get '/horses/:id/edit' do
         @horse = Horse.find_by_id(params[:id])
+        @colors = Horse.color_list
+        @sexes = Horse.sex_list
         redirect_if_not_authorized
         erb :'/horses/edit'
     end
@@ -73,9 +77,7 @@ class HorsesController < ApplicationController
   end
 
   def invalid_input?
-    color_arr = ["Appaloosa", "Bay", "Bay Dapple", "Black", "Brown", "Buckskin", "Champagne", "Chestnut", "Cream", "Dun", "Flaxen Chestnut", "Gray", "Grulla", "Palomino", "Roan", "Silver Dapple", "White"]
-    sex_arr = ["Stallion", "Mare", "Gelding"]
-    true if !color_arr.include?(params[:color]) || !sex_arr.include?(params[:sex]) || params[:name].length > 18 || params[:breed].length > 40
+    true if !Horse.color_list.include?(params[:color]) || !Horse.sex_list.include?(params[:sex]) || params[:name].length > 18 || params[:breed].length > 40
   end
 
   def blank_input?

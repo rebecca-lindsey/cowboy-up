@@ -6,34 +6,18 @@
   <input type="hidden" name="_method" value="PATCH">
     <p>Name: <input type="text" name="name" maxlength="18" value="<%=@horse.name%>"></p>
     <p>Sex:
-    <input type="radio" id="gelding" name="sex" value="Gelding"
-         <%="checked" if @horse.sex == "Gelding"%>>
-        <label for="gelding">Gelding</label>
-    <input type="radio" id="mare" name="sex" value="Mare" <%="checked" if @horse.sex == "Mare"%>>
-        <label for="mare">Mare</label>
-    <input type="radio" id="stallion" name="sex" value="Stallion" <%="checked" if @horse.sex == "Stallion"%>>
-        <label for="stallion">Stallion</label>
-  </p>
+    <%@sexes.each do |sex|%>
+      <input type="radio" name="sex" value="<%=sex%>" <%="checked" if sex == @horse.sex%>>
+      <label for="<%=sex%>"><%=sex%></label>
+    <%end%>
+    </p>
     <p>Color:
-    <select name = "color">
-        <option value = "Appaloosa" <%="selected" if @horse.color == "Appaloosa"%>>Appaloosa</option>
-        <option value = "Bay" <%="selected" if @horse.color == "Bay"%>>Bay</option>
-        <option value = "Bay Dapple" <%="selected" if @horse.color == "Bay Dapple"%>>Bay Dapple</option>
-        <option value = "Black" <%="selected" if @horse.color == "Black"%>>Black</option>
-        <option value = "Brown" <%="selected" if @horse.color == "Brown"%>>Brown</option>
-        <option value = "Buckskin" <%="selected" if @horse.color == "Buckskin"%>>Buckskin</option>
-        <option value = "Champagne" <%="selected" if @horse.color == "Champagne"%>>Champagne</option>
-        <option value = "Chestnut" <%="selected" if @horse.color == "Chestnut"%>>Chestnut</option>
-        <option value = "Cream" <%="selected" if @horse.color == "Cream"%>>Cream</option>
-        <option value = "Dun" <%="selected" if @horse.color == "Dun"%>>Dun</option>
-        <option value = "Flaxen Chestnut" <%="selected" if @horse.color == "Flaxen Chestnut"%>>Flaxen Chestnut</option>
-        <option value = "Gray" <%="selected" if @horse.color == "Gray"%>>Gray</option>
-        <option value = "Grulla" <%="selected" if @horse.color == "Grulla"%>>Grulla</option>
-        <option value = "Palomino" <%="selected" if @horse.color == "Palomino"%>>Palomino</option>
-        <option value = "Roan" <%="selected" if @horse.color == "Roan"%>>Roan</option>
-        <option value = "Silver Dapple" <%="selected" if @horse.color == "Silver Dapple"%>>Silver Dapple</option>
-        <option value = "White" <%="selected" if @horse.color == "White"%>>White</option>
-    </select></p>
+      <select name = "color">
+      <%@colors.each do |color|%>
+        <option value = "<%=color%>" <%="selected" if color == @horse.color%>><%=color%></option>
+      <%end%>
+      </select>
+    </p>
     <p>Breed: <input type="text" name="breed" maxlength="40" value="<%=@horse.breed%>"></p>
     <p><input type="submit" name="submit" id="edit-submit" class="small-button"></p>
   </form>
