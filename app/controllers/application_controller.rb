@@ -10,10 +10,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    if logged_in?
-      erb :"horses/index"
-    end
-    erb :index
+    logged_in? ? erb :"horses/index" : erb :index
   end
 
   helpers do
