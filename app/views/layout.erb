@@ -33,7 +33,9 @@
     </nav>
     <div id="main-content">
     <%if logged_in?%>
-    <p id="signed-in-name">Signed in as <%=current_user.name%></p>
+    <div id="user-info" class="right-side">
+    <p>Signed in as <%=current_user.name%></p>
+    </div>
     <%end%>
         <%= yield %>
     </div>

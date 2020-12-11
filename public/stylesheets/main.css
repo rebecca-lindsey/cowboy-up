@@ -104,9 +104,20 @@
     background-color: hsl(85, 60%, 30%);
   }
 
-  input,
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
   select {
     font-size: 20px;
+    width: 450px;
+  }
+
+  .attribute {
+    padding-right: 20px;
+  }
+
+  .flash {
+    color: red;
   }
 
   #button-box {
@@ -135,7 +146,12 @@
     padding-right: 20px;
   }
 
-  #signed-in-name {
+  #user-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right-side {
     float: right;
   }
 

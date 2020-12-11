@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   get '/signup' do
     if logged_in?
         redirect "/users/#{current_user.id}"
@@ -39,7 +38,8 @@ class UsersController < ApplicationController
   end
 
   get '/users/:id' do
-    @user = User.all.find{|user| user.id.to_s == params[:id]}
+    @user = User.find(params[:id])
+    redirect_if_not_authorized
     erb :'/users/show'
   end
 
