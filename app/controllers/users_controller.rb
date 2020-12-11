@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    u = User.new(email: params["email"], name: params["name"].titleize, password: params["password"])
+    u = User.new(email: params["email"].downcase, name: params["name"].titleize, password: params["password"])
     if invalid_signup?
       redirect '/signup'
     else
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    user = User.find_by_email(params[:email])
+    user = User.find_by_email(params[:email].downcase)
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect "/users/#{current_user.id}"
@@ -46,6 +46,6 @@ class UsersController < ApplicationController
 
     private
     def invalid_signup?
-      true if u.email.blank? || u.name.blank? || u.password.blank? || User.find_by_email(params["email"]) || !URI::MailTo::EMAIL_REGEXP.match?(params["email"])
+      true if u.email.blank? || u.name.blank? || u.password.blank? || User.find_by_email(params["email"].downcase) || !URI::MailTo::EMAIL_REGEXP.match?(params["email"])
     end
 end
