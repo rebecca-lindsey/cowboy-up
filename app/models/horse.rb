@@ -9,6 +9,10 @@ class Horse < ActiveRecord::Base
         sex_arr = ["Mare", "Stallion", "Gelding"]
     end
 
+    def self.breeds
+        select(:breed).map(&:breed).uniq.sort
+    end
+
     def color_selector
         case self.color
         when "Bay", "Bay Dapple"

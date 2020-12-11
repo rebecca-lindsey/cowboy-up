@@ -9,6 +9,7 @@ class HorsesController < ApplicationController
         redirect_if_not_logged_in
         @colors = Horse.color_list
         @sexes = Horse.sex_list
+        @breeds = Horse.breeds
         erb :'/horses/new'
     end
 
@@ -31,9 +32,10 @@ class HorsesController < ApplicationController
 
     get '/horses/:id/edit' do
         @horse = Horse.find_by_id(params[:id])
-        @colors = Horse.color_list
-        @sexes = Horse.sex_list
         redirect_if_not_authorized
+        @colors = Horse.color_list
+        @breeds = Horse.breeds
+        @sexes = Horse.sex_list
         erb :'/horses/edit'
     end
 
