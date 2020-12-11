@@ -1,15 +1,16 @@
 <div class="content">
-<% if @user.horses.empty?%>
-<h1>You don't have any horses yet!</h1>
-<a href="/horses/new"><button class="small-button">Create a new horse</button></a>
-<%else%>
-<h1>All your horses</h1>
-<hr>
-<ul><%@user.horses.each do |horse|%>
-<li><i class="fas fa-horse color-horse-<%=horse.color_selector%>"></i><a class="horse-link" href="/horses/<%=horse.id%>"><b><%=horse.name%></b></a></li>
-<%end%>
-</ul>
-<%end%>
+    <% if @user.horses.empty?%>
+        <h1>You don't have any horses yet!</h1>
+        <a href="/horses/new"><button class="small-button">Create a new horse</button></a>
+    <%else%>
+        <h1>All your horses</h1>
+        <hr>
+        <ul>
+        <%@user.horses.each do |horse|%>
+            <li><i class="fas fa-horse color-horse-<%=horse.color_selector%>"></i><a class="horse-link" href="/horses/<%=horse.slug%>"><b><%=horse.name%></b></a></li>
+        <%end%>
+        </ul>
+    <%end%>
 </div>
 <div class="sidebar">
    <form id="user-delete" method="POST" action="/users/<%= @user.id %>">

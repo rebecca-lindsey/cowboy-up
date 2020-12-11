@@ -21,15 +21,15 @@ class HorsesController < ApplicationController
     redirect "users/#{current_user.id}"
   end
 
-  get '/horses/:id' do
+  get '/horses/:slug' do
     redirect_if_not_logged_in
-    @horse = Horse.find_by_id(params[:id])
+    @horse = Horse.find_by_slug(params[:slug])
     redirect_if_no_horse
     erb :'/horses/show'
   end
 
-  get '/horses/:id/edit' do
-    @horse = Horse.find_by_id(params[:id])
+  get '/horses/:slug/edit' do
+    @horse = Horse.find_by_slug(params[:slug])
     redirect_if_not_authorized
     @colors = Horse.color_list
     @breeds = Horse.breeds
@@ -37,18 +37,19 @@ class HorsesController < ApplicationController
     erb :'/horses/edit'
   end
 
-  patch '/horses/:id' do
-    @horse = Horse.find_by_id(params[:id])
+  patch '/horses/:slug' do
+    @horse = Horse.find_by_slug(params[:slug])
+    binding.pry
     redirect_if_not_authorized
-    redirect "/horses/#{params[:id]}/edit" if invalid_input? || blank_input? || invalid_name?
+    redirect "/horses/#{params[:slug]}/edit" if invalid_input? || blank_input? || invalid_name?
     @horse.update(name: params[:name], sex: params[:sex], color: params[:color], breed: params[:breed])
-    redirect "/horses/#{@horse.id}"
-    end
+    redirect "/horses/#{@horse.slug}"
+  end
 
-  delete '/horses/:id' do
-    @horse = Horse.find_by_id(params[:id])
+  delete '/horses/:slug' do
+    @horse = Horse.find_by_slug(params[:slug])
     redirect_if_not_authorized
-    @horse.delete
+    @horse.destroy
     redirect to "/users/#{current_user.id}"
   end
 
