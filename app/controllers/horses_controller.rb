@@ -17,7 +17,7 @@ class HorsesController < ApplicationController
         if invalid_input? || blank_input? || invalid_name?
             redirect "/horses/new"
         end
-        @horse = Horse.new(name: params[:name], sex: params[:sex], color: params[:color], breed: params[:breed])
+        @horse = Horse.new(name: params[:name].titleize, sex: params[:sex], color: params[:color], breed: params[:breed].titleize)
         redirect_if_not_logged_in
         current_user.horses << @horse
         redirect "users/#{current_user.id}"

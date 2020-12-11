@@ -16,6 +16,12 @@
     <%end%>
     </select>
     </p>
-    <p>Breed: <input type="text" name="breed" maxlength="40"></p>
+    <p>Breed:
+    <input type="text" name="breed" maxlength="40" list="breed_list">
+      <datalist id="breed_list">
+        <%@breeds.each do |breed|%>
+          <option value="<%=breed%>"><%=breed%></option>
+        <%end%>
+      </datalist></p>
     <p><input type="submit" name="submit" id="new-submit" value="Create new horse" class="small-button"></p>
   </form>
