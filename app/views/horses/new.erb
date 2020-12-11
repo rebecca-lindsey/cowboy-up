@@ -2,11 +2,11 @@
 
 <% redirect_if_not_logged_in %>
   <form action='/horses' method="post">
-    <p>Name: <input type="text" name="name" maxlength="18"></p>
-    <p>Sex:
+    <p>Name: <input type="text" name="name" maxlength="18" placeholder="Max Length: 18 Characters"></p>
+    <p><span class="attribute">Sex:</span>
     <%@sexes.each do |sex|%>
       <input type="radio" name="sex" value="<%=sex%>" <%="checked" if sex == "Mare"%>>
-      <label for="<%=sex%>"><%=sex%></label>
+      <label class="attribute" for="<%=sex%>"><%=sex%></label>
     <%end%>
     </p>
     <p>Color:
@@ -17,7 +17,7 @@
     </select>
     </p>
     <p>Breed:
-    <input type="text" name="breed" maxlength="40" list="breed_list">
+    <input type="text" name="breed" maxlength="40" list="breed_list" placeholder="Max Length: 18 Characters">
       <datalist id="breed_list">
         <%@breeds.each do |breed|%>
           <option value="<%=breed%>"><%=breed%></option>

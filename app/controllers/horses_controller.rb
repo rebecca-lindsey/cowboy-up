@@ -39,7 +39,6 @@ class HorsesController < ApplicationController
 
   patch '/horses/:slug' do
     @horse = Horse.find_by_slug(params[:slug])
-    binding.pry
     redirect_if_not_authorized
     redirect "/horses/#{params[:slug]}/edit" if invalid_input? || blank_input? || invalid_name?
     @horse.update(name: params[:name], sex: params[:sex], color: params[:color], breed: params[:breed])
