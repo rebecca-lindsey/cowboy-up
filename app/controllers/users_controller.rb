@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   post '/signup' do
     @user = User.new(email: params["email"].downcase, name: params["name"].titleize, password: params["password"])
-    redirect '/signup' if invalid_signup?
+    redirect '/signup' if blank_signup? || invalid_signup?
     @user.save
     session[:user_id] = @user.id
     redirect "/users/#{@user.id}"
@@ -48,8 +48,12 @@ class UsersController < ApplicationController
 
 
     private
+    def blank_signup?
+      true if @user.email.blank? || @user.name.blank? || @user.password.blank?
+    end
+
     def invalid_signup?
-      true if @user.email.blank? || @user.name.blank? || @user.password.blank? || User.find_by_email(params["email"].downcase) || !URI::MailTo::EMAIL_REGEXP.match?(params["email"])
+      true if User.find_by_email(params["email"].downcase) || !URI::MailTo::EMAIL_REGEXP.match?(params["email"]) || @user.name.length > 35 || @user.password.length < 6
     end
 
     def redirect_if_not_authorized
