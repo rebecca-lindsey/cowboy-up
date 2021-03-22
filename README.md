@@ -53,3 +53,9 @@ Pull Requests are welcome on [GitHub](https://github.com/rebeccahickson/cowboy-u
 <a href="https://youtu.be/X0CGCQGCkcU
 " target="_blank"><img src="http://img.youtube.com/vi/X0CGCQGCkcU/0.jpg" 
 alt="Screenshot of project walkthrough" width="240" height="180" border="10" /></a>
+
+## Further Reading
+
+[Keeping Your HTML Forms in Top Form](https://betterprogramming.pub/keeping-your-form-in-top-form-26e42fd973b2)
+
+We use HTML forms every time we sign into a website. Make sure you're getting the most out of your form with these helpful tips!
