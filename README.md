@@ -47,3 +47,9 @@ The program is available as open source under the terms of the [MIT License](htt
 ## Collaborating
 
 Pull Requests are welcome on [GitHub](https://github.com/rebeccahickson/cowboy-up). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://github.com/cjbrock/worlds-best-restaurants-cli-gem/blob/master/contributor-covenant.org) code of conduct.
+
+## Project Walkthrough
+
+<a href="https://youtu.be/X0CGCQGCkcU
+" target="_blank"><img src="http://img.youtube.com/vi/X0CGCQGCkcU/0.jpg" 
+alt="Screenshot of project walkthrough" width="240" height="180" border="10" /></a>
